@@ -1,47 +1,36 @@
 import java.util.List;
 
-import org.w3c.dom.ls.LSInput;
 
 public class MergeTwoSortedLists {
-	ListNode start=null,p;
-	
-	
-	
-
+	public static ListNode mergeKLists(ListNode[] lists) {
+		return partion(lists, 0, lists.length - 1);
+	}
+	public static ListNode partion(ListNode[] lists,int s,int e){
+		if(s==e) return lists[s];
+		if(s<e){
+			int q=(s+e)/2;
+			ListNode l1=partion(lists,s,q);
+			ListNode l2=partion(lists,q+1,e);
+			return merge(l1,l2);
+		}else {
+			return null;
+		}
+	}
+	public static ListNode merge(ListNode l1,ListNode l2){
+		if(l1==null) return l2;
+		if(l2==null) return l1;
+		if(l1.val<l2.val) {
+			l1.next=merge(l1.next,l2);
+			return l1;
+		}else{
+			l2.next=merge(l1,l2.next);
+			return l2;
+		}
+	}
 }
 class ListNode{
 	int val;
 	ListNode next;
 	ListNode(int x) { val = x; }
-}
-class Solution21 {
-    public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-        ListNode head=null,p1=null,p2=null,p3=null;
-        if(l1==null)
-        	return l2;
-        if(l2==null)
-        	return l1;
-        p3=head;
-        while(p1!=null||p2!=null){
-        	if(p1.next==null){
-        		head.next=p2;
-                p2=p2.next;
-                head=head.next;
-        	}else if(p2.next==null){
-        			head.next=p1;
-        			p1=p1.next;
-        			head=head.next;
-        		}else if(p1.val<p2.val){
-        				head.next=p1;
-        				p1=p1.next;
-        				head=head.next;
-        			}else{
-        				head.next=p2;
-        				p2=p2.next;
-        				head=head.next;
-        				}
-        }
-        return p3.next;
-    }
 }
 
