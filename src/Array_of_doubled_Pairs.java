@@ -87,6 +87,7 @@ public class Array_of_doubled_Pairs {
 
     public static void main(String[] args) {
 
+
         System.out.println(new Array_of_doubled_Pairs().canReorderDoubled(new int[]{0,0}));
 
     }
