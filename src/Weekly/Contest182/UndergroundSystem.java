@@ -1,10 +1,6 @@
 package Weekly.Contest182;
 
-import java.awt.event.MouseAdapter;
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 /**
@@ -35,7 +31,7 @@ public class UndergroundSystem {
 
         Entry entry = train.get(id);
 
-        String startEnd = entry.stationName+stationName;
+        String startEnd = entry.stationName + stationName;
 
         if (averageMap.containsKey(startEnd)) {
 
@@ -56,7 +52,7 @@ public class UndergroundSystem {
 
     public double getAverageTime(String startStation, String endStation) {
 
-        String startEnd = startStation+endStation;
+        String startEnd = startStation + endStation;
 
         return averageMap.get(startEnd).avg;
 
