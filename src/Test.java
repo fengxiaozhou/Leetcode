@@ -7,10 +7,10 @@ public class Test {
         try {
             return 10 / i;
         } catch (Exception ex) {
-            System.out.printf("catch");
+            System.out.print("catch");
             throw new Exception("exception in a aMethod");
         } finally {
-            System.out.printf("finally");
+            System.out.print("finally");
         }
     }
 
