@@ -1,9 +1,7 @@
 
 public class PalindromeNumber {
 	public static void main(String[] args) {
-		String num = String.valueOf(123456);
-		boolean flag=isPalindrome(121);
-		System.out.println(num.charAt(2));
+		System.out.println(isPalindrome2(121));
 	}
 	public static boolean isPalindrome(int x) {
 		int m,n,len=1;
@@ -25,4 +23,20 @@ public class PalindromeNumber {
         return true;
     }
 
+	public static boolean isPalindrome2(int x) {
+		if(x<0)
+			return false;
+		char[] chars = String.valueOf(x).toCharArray();
+		int start = 0;
+		int end = chars.length-1;
+		while(start<end){
+			if(chars[start]!=chars[end]){
+				return false;
+			}else{
+				start++;
+				end--;
+			}
+		}
+		return true;
+	}
 }
